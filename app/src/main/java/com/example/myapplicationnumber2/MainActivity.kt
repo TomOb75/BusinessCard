@@ -35,7 +35,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ){
-                    GreetingImage(message = "Hello from Fortnite", from = "From John Fortnite")
+                    GreetingImage(name = "Tom Oblocki", email = "Email me at tom@oblocki.com")
                 }
             }
         }
@@ -43,41 +43,44 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun GreetingText(message: String, from: String, modifier: Modifier = Modifier) {
+fun GreetingText(name: String, email: String, modifier: Modifier = Modifier) {
     Column(
         verticalArrangement = Arrangement.Center,
         modifier = modifier.padding(8.dp)
     ) {
         Text(
-            text = message,
+            text = name,
             fontSize = 100.sp,
             lineHeight = 116.sp,
-            color = Color.Blue,
+            color = Color.Red,
             textAlign = TextAlign.Center
         )
 
         Text(
-            text = from,
+            text = email,
             fontSize = 36.sp,
-            lineHeight = 45.sp
+            lineHeight = 45.sp,
+            textAlign = TextAlign.Center
+
         )
     }
 }
 
 @Composable
-fun GreetingImage(message: String, from: String, modifier: Modifier = Modifier) {
-    val image = painterResource(R.drawable.doom)
+fun GreetingImage(name: String, email: String, modifier: Modifier = Modifier) {
+    val image = painterResource(R.drawable.panel_106568328_image_46764aeb_7366_40dc_aa9a_76a631ad1d32)
     Box(modifier) {
         Image(
             painter = image,
             contentDescription = null,
             contentScale = ContentScale.Crop,
-            alpha = 0.5F
+            alpha = 0.5F,
+            modifier = Modifier.fillMaxSize()
         )
 
         GreetingText(
-            message = message,
-            from = from,
+            name = name,
+            email = email,
             modifier = Modifier.fillMaxSize().padding(8.dp)
         )
     }
@@ -86,6 +89,6 @@ fun GreetingImage(message: String, from: String, modifier: Modifier = Modifier) 
 @Composable
 fun PostCardPreview() {
     MyApplicationNumber2Theme {
-        GreetingImage(message = "Hello from Fortnite", from = "From John Fortnite")
+        GreetingImage(name = "Tom Oblocki", email = "Email me at tom@oblocki.com")
     }
 }
